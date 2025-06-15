@@ -1,5 +1,5 @@
+import { HomePage } from "~/Pages/HomePage/HomePage";
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,6 +8,26 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function Home() {
-  return <Welcome />;
+export async function clientLoader({params}: Route.ClientLoaderArgs) {
+
+  try {
+     const res = await fetch(`http://localhost:3000/api/chapter`,{
+     method: "GET",
+     headers: {
+       "Content-Type": "application/json",
+     }
+   });
+
+    const product = await res.json();
+    return product;
+
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null
+  }
+ 
+  }
+
+export default function Home({loaderData}: Route.ComponentProps) {
+  return <HomePage data={loaderData} />;
 }
