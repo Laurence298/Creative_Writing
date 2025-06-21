@@ -11,8 +11,8 @@ return (
    <div className="story-card">
         <h3>{chapter.parent_book.title +" "+ chapter.title}</h3>
         <p>{chapter.parent_book.description}</p>
-        <Link to="/reading/1" className="read-more">Read Story →</Link>
-      </div>
+        <Link to={`reading/${chapter.id}`} className="read-more">Read Story →</Link>
+    </div>
 </>
 )
 

@@ -6,7 +6,7 @@ export default [
     index("routes/home.tsx"),
 
 
-    route("reading/:id","./routes/reading_route.tsx"),
+    route("reading/:chapterId","./routes/reading_route.tsx"),
 
 
 

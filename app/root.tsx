@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { NavBar } from "./Pages/HomePage/Header";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 // Create a client
 const queryClient = new QueryClient()
 export const links: Route.LinksFunction = () => [
@@ -48,8 +49,11 @@ export default function App() {
   return(
     <>
       <QueryClientProvider client={queryClient}>
+      
         <NavBar />
         <Outlet />
+        <ReactQueryDevtools initialIsOpen={false} />
+
       </QueryClientProvider>
     </>
   ) ;

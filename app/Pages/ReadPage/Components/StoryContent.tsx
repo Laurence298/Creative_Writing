@@ -1,6 +1,10 @@
 import React from "react";
+import type { Chapter } from "~/Types/book";
 
-export default function StoryContent() {
+type CurrentChpater = {
+  chapter: Chapter;
+};
+export default function StoryContent(chapter: CurrentChpater) {
   return (
     <div
       id="story-content"

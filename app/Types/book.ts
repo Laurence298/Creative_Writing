@@ -1,5 +1,10 @@
 // types.ts
 
+export type ApiDataSort = {
+  data: ChapterList | null;
+};
+
+
 export type ParentBook = {
   title: string;
   description: string;
@@ -12,6 +17,6 @@ export type Chapter = {
   id: number; // Make sure this is included in your data
 };
 
-export type ApiResponse = {
+export type ChapterList = {
   docs: Chapter[];
 };

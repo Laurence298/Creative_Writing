@@ -1,6 +1,10 @@
 import React from "react";
+import type { Chapter } from "~/Types/book";
 
-export default function StoryHeader()  {
+type CurrentChpater = {
+  chapter: Chapter;
+};
+export default function StoryHeader(chapter: CurrentChpater)  {
   return (
     <>
       <h1 >The Last Leaf</h1>
