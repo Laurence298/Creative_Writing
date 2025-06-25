@@ -12,10 +12,9 @@ const chapters = queryClient.getQueryData<ChapterList>(["Chapters"]);
 return (
 <>
 
- <section className="featured" id="stories">
-            <div className="container">
-                <h2 className="section-title">Latest</h2>
-                <div className="stories-grid">
+ <section className="mx-auto justify-center py-8">
+                <h2 className="text-center text-2xl font-grotesk ">Latest</h2>
+                <div className=" flex flex-col gap-4 mt-4 justify-center items-center">
                     {chapters && chapters.docs.length > 0 ? (
                         chapters.docs.map((chapter) => (
                             <Card key={chapter.id} chapter={chapter} />
@@ -24,8 +23,7 @@ return (
                         <p>No chapters found.</p>
                     )}
                 </div>
-            </div>
-        </section>
+ </section>
 </>
 )
 }

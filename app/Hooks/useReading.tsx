@@ -33,6 +33,5 @@ export const useReadingPage = ( initialData?: Chapter, id?: any) => {
     queryKey: ["Reading"],
     queryFn:() => fetchReading(id), // 🛠️ Fix: wrap in function
     initialData,
-    staleTime: 1000 * 60 * 5,
   });
 };

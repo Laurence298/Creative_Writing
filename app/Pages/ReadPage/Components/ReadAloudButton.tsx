@@ -29,7 +29,7 @@ export default function ReadAloudButton() {
 
   return (
     <button
-      onClick={handleReadAloud}
+      onClick={handleReadAloud} className="text-left"
       
     >
       {isReading ? "Stop Reading" : "Read Aloud"}

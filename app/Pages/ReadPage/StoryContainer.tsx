@@ -3,14 +3,14 @@ import StoryHeader from "./Components/StoryHeader";
 import StoryContent from "./Components/StoryContent";
 import ReadAloudButton from "./Components/ReadAloudButton";
 import { useQueryClient } from "@tanstack/react-query";
-import type { Chapter, ChapterList } from "~/Types/book";
+import type { Chapter } from "~/Types/book";
 
 
 export default function StoryContainer() {
   const queryClient = useQueryClient();
   const reading = queryClient.getQueryData<Chapter>(["Reading"]);
   return (
-    <div >
+    <div  >
       {reading  ? (
         <>
           <StoryHeader chapter={reading} />

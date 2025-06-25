@@ -8,11 +8,17 @@ type CardProps = {
 export function Card({chapter}: CardProps) {
 return (
 <>
-   <div className="story-card">
-        <h3>{chapter.parent_book.title +" "+ chapter.title}</h3>
-        <p>{chapter.parent_book.description}</p>
-        <Link to={`reading/${chapter.id}`} className="read-more">Read Story →</Link>
+   <Link to={`reading/${chapter.id}`}>
+      <div
+  
+      className="rounded-2xl shadow-md border border-gray-200 p-4 w-120 md:w-150"
+    >
+      <h2 className="text-xl font-semibold ">{chapter.parent_book.title}</h2>
+      <h3 className="text-md ">{chapter.title}</h3>
     </div>
+
+       
+    </Link>
 </>
 )
 
