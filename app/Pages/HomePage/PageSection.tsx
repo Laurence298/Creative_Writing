@@ -3,8 +3,6 @@ import { Card } from "~/Component/Cards";
 import type { ChapterList } from "~/Types/book";
 
 
-
-
 export function PageSection({  }) {
 const queryClient = useQueryClient();
 const chapters = queryClient.getQueryData<ChapterList>(["Chapters"]);

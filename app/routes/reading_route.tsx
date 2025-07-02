@@ -20,11 +20,12 @@ export default function Reading({loaderData }: Route.ComponentProps) {
 
     
   return(<>
-  <main >
 
-  <StoryContainer />
-
-  </main>
-  
+  {    data ? (
+    <StoryContainer />
+  ) : (
+    <h1>Loading...</h1>
+  )}
+    
   </>) ;
 }

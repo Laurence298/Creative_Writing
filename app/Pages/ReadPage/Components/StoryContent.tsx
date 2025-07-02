@@ -1,4 +1,3 @@
-import React from "react";
 import { extractParagraphsFromLexicalRoot } from "~/Helper/extractText";
 import type { Chapter } from "~/Types/book";
 
