@@ -1,7 +1,7 @@
 
 export const fetchReading = async (id:any)  => {
 
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/chapter/${id}`);
+    const res = await fetch(`http://localhost:3000/api/chapter/${id}`);
     if (!res.ok) throw new Error("Failed to fetch chapters");
 
     const data = await res.json();
@@ -18,6 +18,7 @@ export const fetchReading = async (id:any)  => {
         createdAt: data.createdAt || "",
         updatedAt: data.updatedAt || ""
     };
+    console.log("Fetched Reading:", cleanedData);
 
     return cleanedData;
 
