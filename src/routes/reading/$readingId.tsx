@@ -1,6 +1,6 @@
 import StoryHeader from '../../component/Reading/StoryHeader';
 import { fetchReading } from '../../hooks/useReading'
-import { createFileRoute, useLoaderData } from '@tanstack/react-router'
+import { createFileRoute, Link, useLoaderData } from '@tanstack/react-router'
 import StoryContent from '../../component/Reading/StoryContent';
 import ReadAloudButton from '../../component/Reading/ReadAloudButton';
 import type { Chapter } from '@/Types/book';
@@ -19,7 +19,10 @@ function ReadingLayout() {
         <>
           <StoryHeader chapter={cleanedData} />
           <StoryContent chapter={cleanedData}/>
-          <ReadAloudButton />  
+          <div>
+            <ReadAloudButton />  
+            {/* add a link to the main page */}
+          </div>
         </>
    
     
