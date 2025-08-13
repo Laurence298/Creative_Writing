@@ -11,12 +11,15 @@ export default function StoryContent(chapter: CurrentChpater) {
 
     <>
 
-<div id="story-content" className="max-w-3xl mx-auto px-4 py-8 bg-white text-gray-900">
+<div id="story-content" className="max-w-3xl mx-auto px-4 py-8  ">
   <h2 className="text-2xl font-semibold mb-4">{chapter?.chapter?.title}</h2>
    {paragraphs.map((text, idx) => (
-        <p key={idx} className="space-y-6 text-lg leading-relaxed">
+        <p key={idx} className="space-y-6 text-lg leading-relaxed mb-6">
           {text}
+          
         </p>
+        
+        
       ))}
 </div>
 </>
