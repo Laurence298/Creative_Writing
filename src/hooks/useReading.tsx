@@ -6,7 +6,7 @@ export const fetchReading = async (id:any)  => {
 
     const data = await res.json();
 
-    const cleanedData = {
+    const chapterData = {
         id: data.id || "",
         title: data.title || "",
         content: data.content || "",
@@ -18,9 +18,8 @@ export const fetchReading = async (id:any)  => {
         createdAt: data.createdAt || "",
         updatedAt: data.updatedAt || ""
     };
-    console.log("Fetched Reading:", cleanedData);
 
-    return cleanedData;
+    return chapterData ;
 
 
 };

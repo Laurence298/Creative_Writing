@@ -11,14 +11,14 @@ export const Route = createFileRoute('/reading/$readingId')({
 })
 
 function ReadingLayout() {
-  const cleanedData = useLoaderData({ from: "/reading/$readingId" }) as Chapter;
-  console.log("Reading Layout Data:", cleanedData);
+  const chapterData = useLoaderData({ from: "/reading/$readingId" }) as Chapter;
+  console.log("Reading Layout Data:", chapterData);
   return (
     <div  className=" gap-4 p-4 max-w-3xl mx-auto ">
-      {cleanedData  ? (
+      {chapterData  ? (
         <>
-          <StoryHeader chapter={cleanedData} />
-          <StoryContent chapter={cleanedData}/>
+          <StoryHeader chapter={chapterData} />
+          <StoryContent chapter={chapterData}/>
           <div>
             <ReadAloudButton />  
             {/* add a link to the main page */}
