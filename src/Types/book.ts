@@ -3,17 +3,16 @@
 
 
 export type Book = {
-  title: string;
-  description: string;
+  book_name: string;
+  id: string;
   chapters: Chapter[]
 };
 
 export type Chapter = {
-  title: string;
+  chapter_name: string;
   content: string | null;
-  id: number; // Make sure this is included in your data
+  id: string; // Make sure this is included in your data
 };
 
-export type BookList = {
-  books: Book[];
-};
+export type BookList = Book[];
+

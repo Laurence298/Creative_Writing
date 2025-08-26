@@ -1,29 +1,42 @@
-import type { ChapterList } from '@/Types/book';
-import { fetchChapters } from '../hooks/useChaptersList'
-import { createFileRoute, useLoaderData } from '@tanstack/react-router'
+import { createFileRoute, useLoaderData,Link  } from '@tanstack/react-router'
 import { Card } from '../component/Global/card';
+import type { BookList } from '@/Types/book';
 
 export const Route = createFileRoute('/')({
   component: Mainpage,
-  loader: async () => fetchChapters(),
+  loader: async () => {
+    try {
+      const res = await fetch("http://127.0.0.1:3000/api/books")
+      const data = await res.json()
+      return data
+    } catch (error) {
+      return error
+    }
+  }
 })
 
 function Mainpage() {
-  const { docs } = useLoaderData({from: "/"}) as ChapterList;
+  const data = useLoaderData({from: "/"}) as BookList
+  if (!data) {
+    return <p>No data</p>
+  }
+
   return (
     <>
- <section className="mx-auto justify-center py-8">
-                <h2 className="text-center text-2xl font-grotesk ">Latest</h2>
-                <div className=" flex flex-col gap-4 mt-4 justify-center items-center">
-                    {docs && docs.length > 0 ? (
-                        docs.map((chapter) => (
-                            <Card key={chapter.id} chapter={chapter} />
-                        ))
-                    ) : (
-                        <p>No chapters found.</p>
-                    )}
-                </div>
- </section>
-</>
+     <h1> Latest Realeases</h1>
+     <section>
+      <ul>
+        {data.map((book) => (
+          <li key={book.id}>
+            <Link to="/books/$bookId" params={{ bookId: String(book.id) }}>
+            {book.book_name}
+            </Link>
+          </li>
+      ))}
+      </ul>
+      
+     </section>
+      
+    </>
   )
 }
