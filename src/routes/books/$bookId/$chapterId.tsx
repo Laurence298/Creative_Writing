@@ -8,6 +8,7 @@ export const Route = createFileRoute('/books/$bookId/$chapterId')({
    loader: async ({params:{bookId, chapterId}}) =>{
       const res = await fetch(`http://127.0.0.1:3000/api/books/${bookId}/chapters/${chapterId}`)
       const data: Chapter = await res.json()
+      console.log(data)
   
       
       return data;
@@ -30,9 +31,14 @@ function RouteComponent() {
 
   return (
   <>
-    <h1>{chapter.chapter_name}</h1>
-    <section>
-      <EditorContent editor={editor}/>
+     <section className="flex flex-col items-center gap-8 px-4 py-8">
+      {/* Chapter Title */}
+      <h1 className="text-4xl font-bold text-center">{chapter.chapter_name}</h1>
+
+      {/* Chapter Content */}
+      <div className="w-full max-w-3xl bg-gray-100 p-6 rounded-lg">
+        <EditorContent editor={editor} className="prose prose-lg max-w-none" />
+      </div>
     </section>
   </>
   

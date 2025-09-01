@@ -23,21 +23,39 @@ function RouteComponent() {
   return (
 
     <>
-        <h2>{book.book_name}</h2>
-        <div>
-          <ul>
-           {book.chapters.map((chapter) => (
-            <li key={chapter.id}>
+         <section className="flex flex-col items-center gap-8 px-4 py-8">
+      {/* Book Title */}
+      <h1 className="text-4xl font-bold text-center">{book.book_name}</h1>
+
+      {/* Book Description */}
+      <div className="w-full max-w-3xl bg-gray-100 p-6 rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4">Description</h2>
+        <p className="text-gray-700 leading-relaxed">description</p>
+      </div>
+
+      {/* Chapter List */}
+      <div className="w-full max-w-3xl">
+        <h2 className="text-2xl font-semibold mb-4 text-center">Chapters</h2>
+        <div className="grid grid-cols-1 gap-4">
+          {book.chapters.map((chapter) => (
+            <div 
+              key={chapter.id} 
+              className="bg-gray-100 p-4 rounded-lg flex justify-between items-center hover:bg-gray-200 transition"
+            >
               <Link 
-                to="/books/$bookId/$chapterId" 
-                params={{ bookId: book.id, chapterId: chapter.id }}
+                to={`/books/${book.id}/${chapter.id}`} 
+                className="text-lg font-medium text-blue-600 hover:underline"
               >
-                {chapter.chapter_name ?? `Chapter ${chapter.id}`}  {/* ✅ Visible label */}
+                {chapter.chapter_name}
               </Link>
-            </li>
+              <span className="text-sm text-gray-500">
+                Released: 
+              </span>
+            </div>
           ))}
-          </ul>
         </div>
+      </div>
+    </section>
     </>
   )
 }

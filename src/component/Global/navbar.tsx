@@ -4,14 +4,27 @@ export function NavBar() {
 
 return (
 
- <header className="flex flex-row gap-18 shadow-sm justify-center p-4 rounded-xl ">
-    <div className="text-lg font-grotesk"> Website Name</div>
-    <nav className="flex flex-row">
-      <Link to="/" className="mx-2">Home</Link>
+ <div className="navbar bg-base-100 shadow-sm">
+  <div className="flex-1">
+    <Link to="/" className="btn btn-ghost text-xl">Banner</Link>
+  </div>
+  <div className="flex-none">
+    <ul className="menu menu-horizontal px-1">
+      <li>  <Link to="/" >Books</Link></li>
+      <li>  <Link to="/" >Updates</Link></li>
 
-    </nav>
-       
-</header>
+      <li>
+        <details>
+          <summary>Parent</summary>
+          <ul className="bg-base-100 rounded-t-none p-2">
+            <li><a>Link 1</a></li>
+            <li><a>Link 2</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>
 
 )
 }
